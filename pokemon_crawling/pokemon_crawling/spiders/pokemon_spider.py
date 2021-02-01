@@ -24,27 +24,29 @@ class PokemonExtractorSpider(scrapy.Spider):
             yield scrapy.Request(abs_url, callback=self.parse_pokemon)
 
     def parse_pokemon(self, response):
-        item = Pokemon()
-        item["link"] = response.url
-        item["name"] = response.css("h1::text").extract_first()
-        item["image_link"] = response.xpath("//img/@src").extract_first()
-        item["number"] = int(
+        pokemon = Pokemon()
+        pokemon["link"] = response.url
+        pokemon["name"] = response.css("h1::text").extract_first()
+        pokemon["image_link"] = response.xpath("//img/@src").extract_first()
+        pokemon["number"] = int(
             remove_tags(
                 response.xpath(
                     "//*[contains(text(),'National №')]/../td"
                 ).extract_first()
             )
         )
-        item["generation"] = int(
+        pokemon["generation"] = int(
             remove_tags(
                 response.xpath("//*[contains(text(),'Generation ')]").extract_first()
             )[11:]
         )
-        item["type"] = [
+        pokemon["type"] = [
             t
             for t in response.xpath(
-                "//table[@class='vitals-table']/tbody/tr/th[text()='Type']/../td/a/text()"
+                "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Type']/../td/a/text()"
             ).extract()
         ]
+        pokemons = [pokemon]
+        # response.xpath('//*[@id="main"]/div[contains(class, "sv-tabs-wrapper"))]')
 
-        yield item
+        yield from pokemons
