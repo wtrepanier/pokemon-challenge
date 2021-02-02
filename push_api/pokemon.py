@@ -10,3 +10,7 @@ class Pokemon:
     number: int
     generation: int
     poke_type: List[str]
+    weight: float
+    height: float
+    species: str
+

@@ -9,6 +9,9 @@ class Pokemon(scrapy.Item):
     generation = scrapy.Field()
     number = scrapy.Field()
     image_link = scrapy.Field()
+    weight = scrapy.Field()
+    height = scrapy.Field()
+    species = scrapy.Field()
 
 
 class PokemonExtractorSpider(scrapy.Spider):
@@ -46,5 +49,22 @@ class PokemonExtractorSpider(scrapy.Spider):
                 "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Type']/../td/a/text()"
             ).extract()
         ]
+        pokemon["weight"] = float(
+            response.xpath(
+                "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Weight']/../td/text()"
+            )
+            .extract_first()
+            .split("\xa0")[0]
+        )
+        pokemon["height"] = float(
+            response.xpath(
+                "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Height']/../td/text()"
+            )
+            .extract_first()
+            .split("\xa0")[0]
+        )
+        pokemon["species"] = response.xpath(
+            "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Species']/../td/text()"
+        ).extract_first()
 
         yield pokemon
