@@ -46,7 +46,5 @@ class PokemonExtractorSpider(scrapy.Spider):
                 "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Type']/../td/a/text()"
             ).extract()
         ]
-        pokemons = [pokemon]
-        # response.xpath('//*[@id="main"]/div[contains(class, "sv-tabs-wrapper"))]')
 
-        yield from pokemons
+        yield pokemon
