@@ -9,4 +9,4 @@ class Pokemon:
     image_link: str
     number: int
     generation: int
-    type: List[str]
+    poke_type: List[str]

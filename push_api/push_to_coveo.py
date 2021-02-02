@@ -17,10 +17,11 @@ def get_push_client() -> CoveoPush.Push:
 
 def create_document(pokemon: Pokemon) -> Document:
     document = Document(pokemon.link)
+    document.Title = pokemon.name
     document.AddMetadata('name', pokemon.name)
     document.AddMetadata('link', pokemon.link)
     document.AddMetadata('image_link', pokemon.image_link)
-    document.AddMetadata('type', pokemon.type)
+    document.AddMetadata('poke_type', pokemon.poke_type)
     document.AddMetadata('number', pokemon.number)
     document.AddMetadata('generation', pokemon.generation)
     return document

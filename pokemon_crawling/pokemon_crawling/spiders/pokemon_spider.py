@@ -5,7 +5,7 @@ from w3lib.html import remove_tags
 class Pokemon(scrapy.Item):
     link = scrapy.Field()
     name = scrapy.Field()
-    type = scrapy.Field()
+    poke_type = scrapy.Field()
     generation = scrapy.Field()
     number = scrapy.Field()
     image_link = scrapy.Field()
@@ -40,7 +40,7 @@ class PokemonExtractorSpider(scrapy.Spider):
                 response.xpath("//*[contains(text(),'Generation ')]").extract_first()
             )[11:]
         )
-        pokemon["type"] = [
+        pokemon["poke_type"] = [
             t
             for t in response.xpath(
                 "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Type']/../td/a/text()"
