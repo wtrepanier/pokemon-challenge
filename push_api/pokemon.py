@@ -13,4 +13,5 @@ class Pokemon:
     weight: float
     height: float
     species: str
+    description: str
 

@@ -12,6 +12,7 @@ class Pokemon(scrapy.Item):
     weight = scrapy.Field()
     height = scrapy.Field()
     species = scrapy.Field()
+    description = scrapy.Field()
 
 
 class PokemonExtractorSpider(scrapy.Spider):
@@ -66,5 +67,6 @@ class PokemonExtractorSpider(scrapy.Spider):
         pokemon["species"] = response.xpath(
             "//div[@class='sv-tabs-panel active']//table[@class='vitals-table']/tbody/tr/th[text()='Species']/../td/text()"
         ).extract_first()
+        pokemon["description"] = remove_tags(response.xpath('//p').extract_first())
 
         yield pokemon

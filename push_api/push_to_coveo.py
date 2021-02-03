@@ -27,6 +27,7 @@ def create_document(pokemon: Pokemon) -> Document:
     document.AddMetadata('height', pokemon.height)
     document.AddMetadata('weight', pokemon.weight)
     document.AddMetadata('species', pokemon.species)
+    document.AddMetadata('description', pokemon.description)
     return document
 
 
