@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, height=device-height">
-  <title>Title</title>
+  <title>Pokemon Challenge</title>
   <link rel="stylesheet" href="./css/CoveoFullSearch.css" />
   <link rel="stylesheet" href="./css/coveoextension.css" />
   <script src="js/CoveoJsSearch.Lazy.js"></script>
@@ -33,9 +33,11 @@
     <a class="CoveoTab" data-id="Gen7" data-caption="Gen 7" data-expression="@pokemon_generation=7"></a>
     <a class="CoveoTab" data-id="Gen8" data-caption="Gen 8" data-expression="@pokemon_generation=8"></a>
   </div>
+  <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div>
   <div class='coveo-search-section'>
     <div class="CoveoSettings"></div>
-    <div class="CoveoSearchbox" data-enable-omnibox="true"></div>
+    <div class="CoveoSearchbox"></div>
+    <div class="CoveoFieldSuggestions" data-field="@pokemon_name"></div>
   </div>
   <div class="coveo-main-section">
     <div class="coveo-facet-column">
@@ -75,7 +77,7 @@
         <script id="pokemonTemplate" class="result-template" type="text/html">
     <div class="coveo-result-frame">
       <div class="coveo-result-row">
-        <div class="coveo-result-cell" style="<!-- ...some styling... -->">
+        <div class="coveo-result-cell">
           <a class='CoveoImageFieldValue' data-field='@pokemon_image_link' data-width='80'></a>
           <div class="CoveoQuickview"></div>
         </div>
