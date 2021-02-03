@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height">
+  <title>Pokemon Challenge</title>
+  <link rel="stylesheet" href="./css/CoveoFullSearch.css" />
+  <link rel="stylesheet" href="./css/coveoextension.css" />
+  <script src="js/CoveoJsSearch.Lazy.js"></script>
+  <script src="js/coveo.extension.js"></script>
+  <script src="js/templates/templates.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      Coveo.SearchEndpoint.configureCloudV2Endpoint(
+        "treppokemonchallengefsnfayir",
+        "xx4174322b-00c6-4992-b51d-28df08bb7b0f" // don't do that in production but that token has limited permissions
+      );
+      Coveo.init(document.body);
+    })
+  </script>
+</head>
+
+<body id="search" class='CoveoSearchInterface' data-enable-history="true">
+  <div class="coveo-tab-section">
+    <a class="CoveoTab" data-id="All" data-caption="All Pokemons"></a>
+    <a class="CoveoTab" data-id="Gen1" data-caption="Gen 1" data-expression="@pokemon_generation=1"></a>
+    <a class="CoveoTab" data-id="Gen2" data-caption="Gen 2" data-expression="@pokemon_generation=2"></a>
+    <a class="CoveoTab" data-id="Gen3" data-caption="Gen 3" data-expression="@pokemon_generation=3"></a>
+    <a class="CoveoTab" data-id="Gen4" data-caption="Gen 4" data-expression="@pokemon_generation=4"></a>
+    <a class="CoveoTab" data-id="Gen5" data-caption="Gen 5" data-expression="@pokemon_generation=5"></a>
+    <a class="CoveoTab" data-id="Gen6" data-caption="Gen 6" data-expression="@pokemon_generation=6"></a>
+    <a class="CoveoTab" data-id="Gen7" data-caption="Gen 7" data-expression="@pokemon_generation=7"></a>
+    <a class="CoveoTab" data-id="Gen8" data-caption="Gen 8" data-expression="@pokemon_generation=8"></a>
+  </div>
+  <div class="CoveoAnalytics" data-search-hub="CommunitySearch"></div>
+  <div class='coveo-search-section'>
+    <div class="CoveoSettings"></div>
+    <div class="CoveoSearchbox"></div>
+    <div class="CoveoFieldSuggestions" data-field="@pokemon_name"></div>
+  </div>
+  <div class="coveo-main-section">
+    <div class="coveo-facet-column">
+      <div class="CoveoFacet" data-title="Pokemon Type" data-field="@pokemon_type" data-enable-toggling-operator='true'>
+      </div>
+      <div class="CoveoFacetSlider" data-title="Pokemon Number" data-field="@pokemon_number" data-range-slider='true'>
+      </div>
+      <div class="CoveoFacetSlider" data-title="Pokemon Height (m)" data-field="@pokemon_height"
+        data-range-slider='true'></div>
+      <div class="CoveoFacetSlider" data-title="Pokemon Weight (kg)" data-field="@pokemon_weight"
+        data-range-slider='true'></div>
+    </div>
+    <div class="coveo-results-column">
+      <div class="CoveoShareQuery"></div>
+      <div class="CoveoExportToExcel"></div>
+      <div class="CoveoPreferencesPanel">
+        <div class="CoveoResultsPreferences"></div>
+        <div class="CoveoResultsFiltersPreferences"></div>
+      </div>
+      <div class="CoveoBreadcrumb"></div>
+      <div class="coveo-results-header">
+        <div class="coveo-summary-section">
+          <span class="CoveoQuerySummary"></span>
+          <span class="CoveoQueryDuration"></span>
+        </div>
+        <div class="coveo-result-layout-section">
+          <span class="CoveoResultLayout"></span>
+        </div>
+        <div class="coveo-sort-section">
+          <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_number descending,@pokemon_number ascending"
+            data-caption="Number"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_weight descending,@pokemon_weight ascending"
+            data-caption="Weight"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_height descending,@pokemon_height ascending"
+            data-caption="Height"></span>
+        </div>
+      </div>
+      <div class="CoveoHiddenQuery"></div>
+      <div class="CoveoDidYouMean"></div>
+      <div class="CoveoErrorReport"></div>
+      <div class="CoveoResultList" data-layout="list" data-wait-animation="fade"
+        data-auto-select-fields-to-include="true">
+        <script id="pokemonTemplate" class="result-template" type="text/html">
+    <div class="coveo-result-frame">
+      <div class="coveo-result-row">
+        <div class="coveo-result-cell">
+          <a class='CoveoImageFieldValue' data-field='@pokemon_image_link' data-width='80'></a>
+          <div class="CoveoQuickview"></div>
+        </div>
+        <div class="coveo-result-cell">
+          <div class="coveo-result-row">
+            <div class="coveo-result-cell">
+              <a class="CoveoResultLink" style="font-size:18px;"></a>
+            </div>
+            <div class="coveo-result-cell" style="font-size:18px;">
+              <span>#</span><span class="CoveoFieldValue" data-field="@pokemon_number" data-helper="Number"></span>
+              <span class="CoveoFieldValue" data-field="@pokemon_description" data-helper="Description" style="font-size:12px"></span>
+              <div style="padding-top:4px">
+              <span>Type: </span><span class="CoveoFieldValue" data-field="@pokemon_type" data-helper="Type"></span>
+              </div>
+            </div>        
+          </div>
+      </div>
+    </div>
+  </script>
+      </div>
+      <div class="CoveoPager"></div>
+      <div class="CoveoLogo"></div>
+      <div class="CoveoResultsPerPage"></div>
+    </div>
+  </div>
+</body>
+
+</html>
