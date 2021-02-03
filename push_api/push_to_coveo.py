@@ -24,6 +24,9 @@ def create_document(pokemon: Pokemon) -> Document:
     document.AddMetadata('poke_type', pokemon.poke_type)
     document.AddMetadata('number', pokemon.number)
     document.AddMetadata('generation', pokemon.generation)
+    document.AddMetadata('height', pokemon.height)
+    document.AddMetadata('weight', pokemon.weight)
+    document.AddMetadata('species', pokemon.species)
     return document
 
 
