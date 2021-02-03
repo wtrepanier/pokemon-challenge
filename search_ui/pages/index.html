@@ -39,8 +39,7 @@
   </div>
   <div class="coveo-main-section">
     <div class="coveo-facet-column">
-      <div class="CoveoFacet" data-title="Pokemon Type" data-field="@pokemon_type" data-enable-toggling-operator='true'>
-      </div>
+      <div class="CoveoFacet" data-title="Pokemon Type" data-field="@pokemon_type" data-enable-toggling-operator='true'></div>
     </div>
     <div class="coveo-results-column">
       <div class="CoveoShareQuery"></div>
@@ -60,7 +59,9 @@
         </div>
         <div class="coveo-sort-section">
           <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
-          <span class="CoveoSort" data-sort-criteria="date descending,date ascending" data-caption="Date"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_number descending,@pokemon_number ascending" data-caption="Number"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_weight descending,@pokemon_weight ascending" data-caption="Weight"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_height descending,@pokemon_height ascending" data-caption="Height"></span>
         </div>
       </div>
       <div class="CoveoHiddenQuery"></div>
@@ -72,21 +73,17 @@
     <div class="coveo-result-frame">
       <div class="coveo-result-row">
         <div class="coveo-result-cell" style="<!-- ...some styling... -->">
-          <a class='CoveoImageFieldValue' data-field='@pokemon_image_link' data-width='100'></a>
+          <a class='CoveoImageFieldValue' data-field='@pokemon_image_link' data-width='80'></a>
           <div class="CoveoQuickview"></div>
         </div>
-        <div class="coveo-result-cell"
-             style="padding-left:15px;">
+        <div class="coveo-result-cell">
           <div class="coveo-result-row">
             <div class="coveo-result-cell">
-              <a class="CoveoResultLink"
-                 style="font-size:16px;"></a>
+              <a class="CoveoResultLink" style="font-size:18px;"></a>
             </div>
-            <div class="coveo-result-cell"
-                 style="<!-- ...some styling... -->">
-              <span class="CoveoFieldValue"
-                    data-field="@date"
-                    data-helper="date"></span>
+            <div class="coveo-result-cell" style="font-size:18px;">
+              <span>#</span>
+              <span class="CoveoFieldValue" data-field="@pokemon_number" data-helper="Number"></span>
             </div>
           </div>
         </div>
@@ -94,8 +91,6 @@
     </div>
   </script>
       </div>
-      <div class="CoveoResultList" data-layout="card" data-wait-animation="fade"
-        data-auto-select-fields-to-include="true"></div>
       <div class="CoveoPager"></div>
       <div class="CoveoLogo"></div>
       <div class="CoveoResultsPerPage"></div>
