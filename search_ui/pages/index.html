@@ -41,10 +41,14 @@
   </div>
   <div class="coveo-main-section">
     <div class="coveo-facet-column">
-      <div class="CoveoFacet" data-title="Pokemon Type" data-field="@pokemon_type" data-enable-toggling-operator='true'></div>
-      <div class="CoveoFacetSlider" data-title="Pokemon Number" data-field="@pokemon_number" data-range-slider='true'></div>
-      <div class="CoveoFacetSlider" data-title="Pokemon Height (m)" data-field="@pokemon_height" data-range-slider='true'></div>
-      <div class="CoveoFacetSlider" data-title="Pokemon Weight (kg)" data-field="@pokemon_weight" data-range-slider='true'></div>
+      <div class="CoveoFacet" data-title="Pokemon Type" data-field="@pokemon_type" data-enable-toggling-operator='true'>
+      </div>
+      <div class="CoveoFacetSlider" data-title="Pokemon Number" data-field="@pokemon_number" data-range-slider='true'>
+      </div>
+      <div class="CoveoFacetSlider" data-title="Pokemon Height (m)" data-field="@pokemon_height"
+        data-range-slider='true'></div>
+      <div class="CoveoFacetSlider" data-title="Pokemon Weight (kg)" data-field="@pokemon_weight"
+        data-range-slider='true'></div>
     </div>
     <div class="coveo-results-column">
       <div class="CoveoShareQuery"></div>
@@ -64,15 +68,19 @@
         </div>
         <div class="coveo-sort-section">
           <span class="CoveoSort" data-sort-criteria="relevancy" data-caption="Relevance"></span>
-          <span class="CoveoSort" data-sort-criteria="@pokemon_number descending,@pokemon_number ascending" data-caption="Number"></span>
-          <span class="CoveoSort" data-sort-criteria="@pokemon_weight descending,@pokemon_weight ascending" data-caption="Weight"></span>
-          <span class="CoveoSort" data-sort-criteria="@pokemon_height descending,@pokemon_height ascending" data-caption="Height"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_number descending,@pokemon_number ascending"
+            data-caption="Number"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_weight descending,@pokemon_weight ascending"
+            data-caption="Weight"></span>
+          <span class="CoveoSort" data-sort-criteria="@pokemon_height descending,@pokemon_height ascending"
+            data-caption="Height"></span>
         </div>
       </div>
       <div class="CoveoHiddenQuery"></div>
       <div class="CoveoDidYouMean"></div>
       <div class="CoveoErrorReport"></div>
-      <div class="CoveoResultList" data-layout="list" data-wait-animation="fade" data-auto-select-fields-to-include="true">
+      <div class="CoveoResultList" data-layout="list" data-wait-animation="fade"
+        data-auto-select-fields-to-include="true">
         <script id="pokemonTemplate" class="result-template" type="text/html">
     <div class="coveo-result-frame">
       <div class="coveo-result-row">
@@ -86,10 +94,13 @@
               <a class="CoveoResultLink" style="font-size:18px;"></a>
             </div>
             <div class="coveo-result-cell" style="font-size:18px;">
-              <span>#</span>
-              <span class="CoveoFieldValue" data-field="@pokemon_number" data-helper="Number"></span>
-              <span class="CoveoFieldValue" data-field="@pokemon_description" data-helper="Description" style="font-size:12px;"></div>
-        </div>
+              <span>#</span><span class="CoveoFieldValue" data-field="@pokemon_number" data-helper="Number"></span>
+              <span class="CoveoFieldValue" data-field="@pokemon_description" data-helper="Description" style="font-size:12px"></span>
+              <div style="padding-top:4px">
+              <span>Type: </span><span class="CoveoFieldValue" data-field="@pokemon_type" data-helper="Type"></span>
+              </div>
+            </div>        
+          </div>
       </div>
     </div>
   </script>
